@@ -612,6 +612,8 @@ body {
   padding: 40px;
 }
 .card__detail-description-d {
+  width: 32rem;
+  overflow: hidden;
   font-size: 1.6rem;
   padding: 23px 23px 23px 0px;
   letter-spacing: 0px;
@@ -716,6 +718,7 @@ body {
     transform: translateX(-10px);
   }
   .card__detail-description-d {
+    width: 20rem;
     font-size: 18px;
   }
   .card__detail-description {
