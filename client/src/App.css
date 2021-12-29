@@ -507,6 +507,7 @@
 }
 .card__description {
   font-size: small;
+  overflow-x: hidden;
 }
 .card__button {
   padding: 12px;
@@ -681,6 +682,7 @@ body {
 }
 .comment_text {
   font-size: 23px;
+  overflow-x: hidden;
   margin-top: 17px;
 }
 .comment-line {
@@ -692,7 +694,7 @@ body {
 @media only screen and (max-width: 800px) {
   .comment__username {
     font-size: 1.3rem;
-    transform: translateY(-15px);
+    transform: translateY(-12px);
   }
   .card__detail-userinfo {
     order: 2;
