@@ -506,6 +506,7 @@
   float: right;
 }
 .card__description {
+  max-width: 16rem;
   font-size: small;
   overflow-x: hidden;
 }
