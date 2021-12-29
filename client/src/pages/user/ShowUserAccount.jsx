@@ -5,6 +5,7 @@ import Avatar from "../../misc/Avatar";
 import { AiFillSetting } from "react-icons/ai";
 import { MdLocalPostOffice } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const ShowUserAccount = () => {
   const [user, setUser] = useState({
@@ -21,6 +22,8 @@ const ShowUserAccount = () => {
   const [file, setFile] = useState("");
   const [image, setImage] = useState(null);
   const [active, setActive] = useState(true);
+
+  const history = useHistory();
 
   let name, value;
   useEffect(() => {
@@ -65,6 +68,7 @@ const ShowUserAccount = () => {
       setUser(res.data.data.user);
       setImage(res.data.data.user.photo);
       alert("data updated sucessfully");
+      history.push("/");
     } catch (error) {
       alert(error.response.data.message);
     }
