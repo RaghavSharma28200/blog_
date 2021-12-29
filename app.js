@@ -18,6 +18,7 @@ const globalErrorHandler = require("./controllers/errorController");
 const app = express();
 app.use("/public/img/user", express.static(path.join("public", "img", "user")));
 app.use("/public/img/post", express.static(path.join("public", "img", "post")));
+app.use(express.static("client/build"));
 
 app.use(express.json());
 app.use(cookieParser());
