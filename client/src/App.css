@@ -625,7 +625,7 @@ body {
   text-transform: uppercase;
   font-size: 1.6rem;
   font-weight: bold;
-  transform: translateY(-18px);
+  transform: translateY(6px);
 }
 .card__detail-dh {
   padding: 25px 25px 25px 0px;
@@ -639,7 +639,7 @@ body {
 }
 .card__detail-date {
   font-size: 1.3rem;
-  margin: 23px;
+  margin: 23px 0px;
 }
 .comment_wrapper {
   padding-bottom: 40px;
