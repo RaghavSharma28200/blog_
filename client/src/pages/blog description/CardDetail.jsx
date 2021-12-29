@@ -22,7 +22,7 @@ const CardDetail = ({
         <div className="card__detail-img-wrapper">
           <img
             className="card__detail-img"
-            src={`http://localhost:8000/public/img/post/${image}`}
+            src={`/public/img/post/${image}`}
             alt="No Pic"
           />
         </div>
@@ -38,7 +38,7 @@ const CardDetail = ({
               <div className="card__detail-name">
                 <img
                   className="nav__user-img"
-                  src={`http://localhost:8000/public/img/user/${createdByPhoto}`}
+                  src={`/public/img/user/${createdByPhoto}`}
                   alt=""
                 />
                 <span className="card__detail-username d-ib">

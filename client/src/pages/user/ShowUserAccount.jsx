@@ -133,7 +133,7 @@ const ShowUserAccount = () => {
             {user.photo !== undefined && (
               <img
                 className="form__user-pic"
-                src={`http://localhost:8000/public/img/user/${user.photo}`}
+                src={`/public/img/user/${user.photo}`}
                 alt="User pic"
               />
             )}

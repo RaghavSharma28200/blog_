@@ -10,7 +10,7 @@ const CommentList = ({ comment, username, userphoto, createdAt }) => {
     <>
       <div>
         <img
-          src={`http://localhost:8000/public/img/user/${userphoto}`}
+          src={`/public/img/user/${userphoto}`}
           className="nav__user-img"
           alt="No pic"
         />{" "}

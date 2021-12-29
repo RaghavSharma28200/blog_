@@ -69,7 +69,7 @@ const Blog = ({ url, headingText, buttonText, req }) => {
             {imgPreview === null && (
               <img
                 className="form__blog-pic"
-                src={`http://localhost:8000/public/img/post/default.jpeg`}
+                src={`/public/img/post/default.jpeg`}
                 alt="User pic"
               />
             )}
