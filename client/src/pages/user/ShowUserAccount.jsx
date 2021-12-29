@@ -68,7 +68,7 @@ const ShowUserAccount = () => {
       setUser(res.data.data.user);
       setImage(res.data.data.user.photo);
       alert("data updated sucessfully");
-      history.push("/");
+      window.location.replace("/myAccount");
     } catch (error) {
       alert(error.response.data.message);
     }

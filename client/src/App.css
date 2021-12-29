@@ -678,7 +678,7 @@ body {
   font-size: 2rem;
   margin: 0px 0px 0px 10px;
   font-weight: bold;
-  transform: translateY(-12px);
+  transform: translateY(5px);
 }
 .comment_text {
   font-size: 23px;
@@ -764,7 +764,7 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
   .btn-comment {
-    font-size: 18px;
+    font-size: 19px;
   }
   .inp-comment {
     width: 76% !important;
