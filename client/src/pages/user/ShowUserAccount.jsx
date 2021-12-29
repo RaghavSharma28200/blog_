@@ -27,11 +27,11 @@ const ShowUserAccount = () => {
     axios
       .get("/api/v1/users/me")
       .then((data) => {
-        console.log(data.data.data.data);
+        // console.log(data.data.data.data);
         setUser(data.data.data.data);
       })
       .catch((error) => {
-        console.log(error.response);
+        alert(error.response.data.message);
       });
   }, []);
   const handleInputChange = (e) => {
@@ -43,32 +43,37 @@ const ShowUserAccount = () => {
   };
 
   const handleFileChange = (e) => {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   };
 
   const handleUserModify = async (e) => {
     e.preventDefault();
-    const { name, email } = user;
-    console.log(name, email);
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("photo", file);
-    const url = "/api/v1/users/updateMe";
-    const config = {
-      headers: { "content-type": "multipart/form-data" },
-    };
-    const res = await axios.patch(url, formData, config);
-    // console.log(res.data.data.user.photo);
-    setUser(res.data.data.user);
-    setImage(res.data.data.user.photo);
+    try {
+      const { name, email } = user;
+      // console.log(name, email);
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("photo", file);
+      const url = "/api/v1/users/updateMe";
+      const config = {
+        headers: { "content-type": "multipart/form-data" },
+      };
+      const res = await axios.patch(url, formData, config);
+      // console.log(res.data.data.user.photo);
+      setUser(res.data.data.user);
+      setImage(res.data.data.user.photo);
+      alert("data updated sucessfully");
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   const handleUserPassword = (e) => {
     name = e.target.name;
     value = e.target.value;
-    console.log(name, value);
+    // console.log(name, value);
     setUserPassword({ ...userPassword, [name]: value });
   };
 
@@ -84,9 +89,10 @@ const ShowUserAccount = () => {
         passwordConfirm,
       };
       const res = await axios.patch(url, data);
-      console.log(res);
+      alert("password updated Sucessfully");
+      // console.log(res);
     } catch (error) {
-      console.log(error.response);
+      alert(error.response.data.message);
     }
   };
 

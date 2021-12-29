@@ -17,7 +17,7 @@ const Description = () => {
 
   useEffect(() => {
     axios.get(`/api/v1/posts/${id}`).then((res) => {
-      console.log(res.data.data.post.comments);
+      // console.log(res.data.data.post.comments);
       setData(res.data.data.post);
       setUserData(res.data.data.post.user);
       setComments(res.data.data.post.comments);
@@ -28,17 +28,22 @@ const Description = () => {
   const handleCommentChange = (e) => {
     setCommentText(e.target.value);
   };
-
+  const checkUser = JSON.parse(localStorage.getItem("auth"));
   const handleCommentClick = async (e) => {
-    const url = "/api/v1/comments/";
-    const data = {
-      comment: commentText,
-      post: id,
-    };
-    const res = await axios.post(url, data);
-    const updateComment = await axios.get(`/api/v1/posts/${id}`);
-    setComments(updateComment.data.data.post.comments);
-    console.log(res);
+    if (checkUser) {
+      const url = "/api/v1/comments/";
+      const data = {
+        comment: commentText,
+        post: id,
+      };
+      await axios.post(url, data);
+      const updateComment = await axios.get(`/api/v1/posts/${id}`);
+      setComments(updateComment.data.data.post.comments);
+    } else {
+      alert("Log in or sign in to get access");
+    }
+
+    // console.log(res);
   };
 
   return (

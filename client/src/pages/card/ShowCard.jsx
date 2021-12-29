@@ -34,9 +34,10 @@ const ShowCard = ({
     );
 
     if (confirm) {
-      const res = await axios.delete(`/api/v1/posts/${id}`);
+      await axios.delete(`/api/v1/posts/${id}`);
+      alert("post deleted sucessfully");
       history.push("/myAccount");
-      console.log(res);
+      // console.log(res);
     }
     return;
   };

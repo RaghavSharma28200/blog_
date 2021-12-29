@@ -56,7 +56,8 @@ const NavBar = () => {
       });
 
       if (res.data.status === "success") {
-        console.log("Logged in sucessfully");
+        // console.log("Logged in sucessfully");
+        alert("Logged in SucessFully");
         // console.log(res.data.data.user.name);
         // setPic(res.data.data.user)
 
@@ -71,8 +72,10 @@ const NavBar = () => {
       // // console.log(data.data.data.data.photo);
       // setPic(data.data.data.data.photo)
     } catch (error) {
-      console.log("error", error.response.data.message);
+      // console.log("error", error.response.data.message);
+      setOpen(false);
       // console.log(error)
+      alert(error.response.data.message);
     }
   };
 
@@ -97,9 +100,9 @@ const NavBar = () => {
         },
       });
       if (res.data.status === "success") {
-        console.log("signned in sucessfully");
-        console.log(res);
-
+        // console.log("signned in sucessfully");
+        // console.log(res);
+        alert("Signned in SucessFully");
         localStorage.setItem(
           "auth",
           JSON.stringify({ user: res.data.data.user.name })
@@ -108,14 +111,16 @@ const NavBar = () => {
         setSignup("");
       }
     } catch (error) {
-      console.log("error", error.response.data.message);
+      setOpen(false);
+      alert(error.response.data.message);
+      // console.log("error", error.response.data.message);
     }
   };
 
   ///////// for logout
   const handleLogout = async () => {
     const res = await axios.get("/api/v1/users/logout");
-    console.log(res.data);
+    // console.log(res.data);
     localStorage.removeItem("auth");
     window.location.replace("/");
   };

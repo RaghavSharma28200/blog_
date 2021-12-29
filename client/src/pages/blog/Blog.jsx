@@ -22,7 +22,7 @@ const Blog = ({ url, headingText, buttonText, req }) => {
   const onFileChange = (e) => {
     const file = e.target.files[0];
     const imgPreview = URL.createObjectURL(file);
-    console.log(imgPreview);
+    // console.log(imgPreview);
     setImgPreview(imgPreview);
     setFile(e.target.files[0]);
   };
@@ -50,12 +50,13 @@ const Blog = ({ url, headingText, buttonText, req }) => {
         data: formData,
         config,
       });
-      console.log(res);
+      // console.log(res);
       if (res.data.status === "success") {
         history.push("/myBlogs");
       }
     } catch (error) {
-      console.log(error.response.data.message);
+      alert(error.response.data.message);
+      // console.log(error.response.data.message);
     }
   };
   return (

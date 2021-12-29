@@ -13,7 +13,8 @@ const Heading = () => {
     if (checkUser) {
       history.push("/createBlog");
     } else {
-      console.log("Please Log in or sign in to get Access");
+      alert("Please Log in or sign in to get Access");
+      // console.log("Please Log in or sign in to get Access");
     }
   };
 

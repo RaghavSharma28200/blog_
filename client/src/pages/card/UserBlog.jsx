@@ -11,7 +11,7 @@ const UserBlog = () => {
   const [active, setActive] = useState(true);
   useEffect(() => {
     axios.get("/api/v1/posts/post/myPosts").then((res) => {
-      console.log(res.data.data.posts);
+      // console.log(res.data.data.posts);
       setData(res.data.data.posts);
     });
   }, []);

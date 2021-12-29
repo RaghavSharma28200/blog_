@@ -11,12 +11,12 @@ const Home = () => {
     axios
       .get("/api/v1/posts")
       .then((data) => {
-        console.log(data.data.data.posts);
+        // console.log(data.data.data.posts);
         setData(data.data.data.posts);
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data.message);
       });
   }, []);
   return (
