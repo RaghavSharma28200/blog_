@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/v1/posts")
+      .get("/api/v1/posts")
       .then((data) => {
         console.log(data.data.data.posts);
         setData(data.data.data.posts);
