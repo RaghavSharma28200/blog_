@@ -747,6 +747,10 @@ body {
     font-size: 13px;
     letter-spacing: 4px;
   }
+  .btn-white {
+    font-size: 17px;
+    margin-top: 0%;
+  }
   .heading-primary {
     margin-bottom: 21px;
   }
