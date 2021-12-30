@@ -18,7 +18,6 @@ const globalErrorHandler = require("./controllers/errorController");
 const app = express();
 app.use("/public/img/user", express.static(`${__dirname}/public/img/user`));
 app.use("/public/img/post", express.static(`${__dirname}/public/img/post`));
-app.use(express.static("client/build"));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -45,6 +44,13 @@ if (process.env.NODE_ENV === "development") {
 app.use("/api/v1/users", userRoute);
 app.use("/api/v1/posts", postRoute);
 app.use("/api/v1/comments", commentRoute);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Cant't find ${req.originalUrl} on this server `, 404));
