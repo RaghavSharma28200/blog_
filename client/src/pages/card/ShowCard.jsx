@@ -65,16 +65,20 @@ const ShowCard = ({
           <NavLink to={`/blogDetail/${id}`} className="link_style">
             <button className="btn btn--green">Detail</button>
           </NavLink>
-          <span className={`${active ? "card__options" : "d-none"}`}>
-            <NavLink to={`/updateBlog/${id}`} className="act_lnk">
-              <span className="mr-r">
-                <MdOutlineSystemUpdateAlt />
+          {active && (
+            <>
+              <span className="card__options">
+                <NavLink to={`/updateBlog/${id}`} className="act_lnk">
+                  <span className="mr-r">
+                    <MdOutlineSystemUpdateAlt />
+                  </span>
+                </NavLink>
+                <span onClick={handleDelete}>
+                  <MdDelete />
+                </span>
               </span>
-            </NavLink>
-            <span onClick={handleDelete}>
-              <MdDelete />
-            </span>
-          </span>
+            </>
+          )}
         </div>
       </div>
     </>
