@@ -115,4 +115,3 @@ module.exports = (err, req, res, next) => {
     sendErrorProd(error, req, res);
   }
 };
-// if (error.name === 'ValidationError')

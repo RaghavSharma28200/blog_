@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/userModel");
 const { promisify } = require("util");
+const User = require("../models/userModel");
 const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
 
@@ -23,7 +23,8 @@ exports.signup = catchAsync(async (req, res, next) => {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
-    httpOnly: false,
+    httpOnly: true,
+    secure: req.secure || req.headers["x-forwarded-proto"] === "https",
   });
 
   // console.log(token);
@@ -92,7 +93,7 @@ exports.protect = catchAsync(async (req, res, next) => {
       new AppError("The user belonging to this token does no longer exist", 401)
     );
   }
-  // GRANT ACCESS TO PROTECTED ROUTE
+  // 4) GRANT ACCESS TO PROTECTED ROUTE
   req.user = currentUser;
   res.locals.user = currentUser;
   next();
