@@ -4,9 +4,10 @@ const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}: ${err.value}.`;
   return new AppError(message, 400);
 };
-// .match(/(["'])(\\?.)*?\1/);
+
 const handleDuplicateFieldsDB = (err) => {
-  const value = err.keyValue.name;
+  const value = err.message.match(/(["'])(\\?.)*?\1/)[0];
+  // console.log(err.message.match(/(["'])(\\?.)*?\1/)[0]);
   const message = `Duplicate field value : "${value}". Please use another value`;
   return new AppError(message, 400);
 };
