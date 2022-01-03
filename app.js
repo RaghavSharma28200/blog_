@@ -58,3 +58,10 @@ app.all("*", (req, res, next) => {
 
 app.use(globalErrorHandler);
 module.exports = app;
+
+/*
+
+https://blog-post-raghav.netlify.app/#/
+https://blog-post-raghav28.herokuapp.com/#/
+
+ */
