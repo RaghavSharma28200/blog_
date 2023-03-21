@@ -27,12 +27,12 @@ exports.signup = catchAsync(async (req, res, next) => {
     secure: req.secure || req.headers["x-forwarded-proto"] === "https",
   });
 
-  // console.log(token);
+  console.log(token);
   res.status(201).json({
     status: "success",
     token,
     data: {
-      user: newUser,
+      user:newUser
     },
   });
 });

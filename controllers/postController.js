@@ -31,7 +31,7 @@ exports.getAllPosts = catchAsync(async (req, res, next) => {
   });
 });
 
-/////////my post
+
 
 exports.myPosts = (req, res, next) => {
   req.query = { user: req.user.id };
